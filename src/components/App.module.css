@@ -1,12 +1,27 @@
-body {
-  background-color: rgb(56, 56, 58);
+@media screen and (max-width: 755px) {
+  .app {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas: "header" "searchbar" "pokemondisplay";
+  }
+
+  .pokemondisplay {
+    margin: 0 auto;
+  }
 }
 
-.app {
-  display: grid;
-  grid-template-columns: 30vw 70vw;
-  grid-template-rows: auto auto;
-  grid-template-areas: "header header" "searchbar pokemondisplay";
+@media screen and (min-width: 756px) {
+  .app {
+    display: grid;
+    grid-template-columns: 30vw 70vw;
+    grid-template-rows: auto auto;
+    grid-template-areas: "header header" "searchbar pokemondisplay";
+  }
+}
+
+body {
+  background-color: rgb(56, 56, 58);
 }
 
 .header {

@@ -11,7 +11,6 @@ function App() {
   const [results, setResults] = useState("");
 
   function handleChange(event) {
-    console.log("i'm clicked");
     setSearchTerm(event.target.value);
     //setResults("");
   }
@@ -21,9 +20,9 @@ function App() {
   function chosenPokeClick() {
     setResults("");
     fetch(`http://localhost:5000/pokemon?search=${searchTerm}`)
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("this is the logged data from fetch" + data);
         setResults(data[0]);
       });
   }

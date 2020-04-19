@@ -5,10 +5,10 @@ function Autocomplete({ searchTerm, handleSelect }) {
   const [options, setOptions] = useState([""]);
 
   useEffect(
-    function() {
+    function () {
       fetch(`http://localhost:5000/pokemon?search=${searchTerm}`)
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           console.log(data);
           setOptions(data);
         });
@@ -18,15 +18,16 @@ function Autocomplete({ searchTerm, handleSelect }) {
 
   return (
     <ul>
-      {options.map(item => (
-        <li className={css.listItem} onClick={() => handleSelect(item.name)}>
-          <img src={item.img_url} alt="pokemon" />
-          <div>
-            <p>ID: {item.id}</p>
-            <p>Name: {item.name}</p>
-          </div>
-        </li>
-      ))}
+      {searchTerm &&
+        options.map((item) => (
+          <li className={css.listItem} onClick={() => handleSelect(item.name)}>
+            <img src={item.img_url} alt="pokemon" />
+            <div>
+              <p>ID: {item.id}</p>
+              <p>Name: {item.name}</p>
+            </div>
+          </li>
+        ))}
     </ul>
   );
 }
